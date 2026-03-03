@@ -1,0 +1,97 @@
+
+:root {
+  /* Typography scale */
+  --font-brand: 'Struve', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  /* Sizes */
+  --h1-size: 48px;
+  --h1-line: 56px;
+
+  --h2-size: 40px;
+  --h2-line: 48px;
+
+  --h3-size: 32px;
+  --h3-line: 40px;
+
+  --h4-size: 24px;
+  --h4-line: 32px;
+
+  --h5-size: 20px;
+  --h5-line: 28px;
+
+  --h6-size: 18px;
+  --h6-line: 24px;
+
+  --body-l-size: 18px;
+  --body-l-line: 28px;
+
+  --body-m-size: 16px;
+  --body-m-line: 24px;
+
+  --body-s-size: 14px;
+  --body-s-line: 20px;
+
+  --caption-size: 12px;
+  --caption-line: 16px;
+
+  --label-size: 12px;
+  --label-line: 16px;
+}
+
+/* Semantic utility classes */
+.text-title-xl {
+  font-family: var(--font-brand);
+  font-size: var(--h1-size);
+  line-height: var(--h1-line);
+  font-weight: 600;
+}
+
+.text-body-s {
+  font-family: var(--font-brand);
+  font-size: var(--body-s-size);
+  line-height: var(--body-s-line);
+  font-weight: 400;
+}
+
+.text-mono-xs {
+  font-family: var(--font-mono);
+  font-size: var(--caption-size);
+  line-height: var(--caption-line);
+  font-weight: 400;
+}
+
+
+/* Additional large sizes */
+:root {
+  --display-64-size: 64px;
+  --display-64-line: 72px;
+
+  --display-96-size: 96px;
+  --display-96-line: 104px;
+
+  --display-128-size: 128px;
+  --display-128-line: 136px;
+}
+
+/* Utility classes */
+.text-display-64 {
+  font-family: var(--font-brand);
+  font-size: var(--display-64-size);
+  line-height: var(--display-64-line);
+  font-weight: 600;
+}
+
+.text-display-96 {
+  font-family: var(--font-brand);
+  font-size: var(--display-96-size);
+  line-height: var(--display-96-line);
+  font-weight: 600;
+}
+
+.text-display-128 {
+  font-family: var(--font-brand);
+  font-size: var(--display-128-size);
+  line-height: var(--display-128-line);
+  font-weight: 600;
+}

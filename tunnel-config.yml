@@ -1,0 +1,7 @@
+tunnel: mcp-tunnel
+credentials-file: /Users/letmeshock/.cloudflared/8cdd89e4-fe34-4355-972f-43faf96631c3.json
+
+ingress:
+  - hostname: presentation.letmeshock.org
+    service: http://localhost:5173
+  - service: http_status:404

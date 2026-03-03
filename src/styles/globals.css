@@ -1,0 +1,271 @@
+@import './tokens.css';
+@import './typography.css';
+@import './fonts.css';
+@import 'tailwindcss';
+
+@layer base {
+  html {
+    font-family: var(--font-brand);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  [dir="rtl"] {
+    font-family: var(--font-ar);
+  }
+
+  /* Prevent scrolling */
+  body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ========================================
+     Dark mode - Color handling
+     constant-white/black auto-invert via CSS variables in tokens.css
+     Grey scale needs explicit class overrides
+     ======================================== */
+
+  /* Global dark mode background - uses inverted variables */
+  html.dark {
+    background-color: var(--constant-white);
+    color: var(--constant-black);
+  }
+
+  html.dark body {
+    background-color: var(--constant-white);
+    color: var(--constant-black);
+  }
+
+  /* === GREY SCALE INVERSIONS (needed because grey variables don't auto-invert) === */
+
+  /* Grey backgrounds - invert the scale */
+  .dark .bg-grey-50 {
+    background-color: var(--grey-950) !important;
+  }
+
+  .dark .bg-grey-100 {
+    background-color: var(--grey-900) !important;
+  }
+
+  .dark .bg-grey-200 {
+    background-color: var(--grey-800) !important;
+  }
+
+  .dark .bg-grey-300 {
+    background-color: var(--grey-700) !important;
+  }
+
+  .dark .bg-grey-400 {
+    background-color: var(--grey-600) !important;
+  }
+
+  .dark .bg-grey-500 {
+    background-color: var(--grey-500) !important;
+  }
+
+  .dark .bg-grey-600 {
+    background-color: var(--grey-400) !important;
+  }
+
+  .dark .bg-grey-700 {
+    background-color: var(--grey-300) !important;
+  }
+
+  .dark .bg-grey-800 {
+    background-color: var(--grey-200) !important;
+  }
+
+  .dark .bg-grey-900 {
+    background-color: var(--grey-100) !important;
+  }
+
+  .dark .bg-grey-950 {
+    background-color: var(--grey-50) !important;
+  }
+
+  /* Grey text - invert the scale */
+  .dark .text-grey-50 {
+    color: var(--grey-950) !important;
+  }
+
+  .dark .text-grey-100 {
+    color: var(--grey-900) !important;
+  }
+
+  .dark .text-grey-200 {
+    color: var(--grey-800) !important;
+  }
+
+  .dark .text-grey-300 {
+    color: var(--grey-700) !important;
+  }
+
+  .dark .text-grey-400 {
+    color: var(--grey-600) !important;
+  }
+
+  .dark .text-grey-500 {
+    color: var(--grey-500) !important;
+  }
+
+  .dark .text-grey-600 {
+    color: var(--grey-400) !important;
+  }
+
+  .dark .text-grey-700 {
+    color: var(--grey-300) !important;
+  }
+
+  .dark .text-grey-800 {
+    color: var(--grey-200) !important;
+  }
+
+  .dark .text-grey-900 {
+    color: var(--grey-100) !important;
+  }
+
+  .dark .text-grey-950 {
+    color: var(--grey-50) !important;
+  }
+
+  /* Grey borders - invert the scale */
+  .dark .border-grey-50 {
+    border-color: var(--grey-950) !important;
+  }
+
+  .dark .border-grey-100 {
+    border-color: var(--grey-900) !important;
+  }
+
+  .dark .border-grey-200 {
+    border-color: var(--grey-800) !important;
+  }
+
+  .dark .border-grey-300 {
+    border-color: var(--grey-700) !important;
+  }
+
+  .dark .border-grey-400 {
+    border-color: var(--grey-600) !important;
+  }
+
+  .dark .border-grey-500 {
+    border-color: var(--grey-500) !important;
+  }
+
+  .dark .border-grey-600 {
+    border-color: var(--grey-400) !important;
+  }
+
+  .dark .border-grey-700 {
+    border-color: var(--grey-300) !important;
+  }
+
+  .dark .border-grey-800 {
+    border-color: var(--grey-200) !important;
+  }
+
+  .dark .border-grey-900 {
+    border-color: var(--grey-100) !important;
+  }
+}
+
+@layer utilities {
+
+  /* Slide transitions */
+  .slide-left {
+    animation: slideLeft 0.5s ease-out;
+  }
+
+  .slide-right {
+    animation: slideRight 0.5s ease-out;
+  }
+
+  @keyframes slideLeft {
+    from {
+      opacity: 0.8;
+      transform: translateX(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideRight {
+    from {
+      opacity: 0.8;
+      transform: translateX(-20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Fade animation */
+  .fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+/* Print styles for PDF export */
+@media print {
+  @page {
+    size: 1280px 720px;
+    margin: 0;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 1280px;
+    height: 720px;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .print-container {
+    width: 1280px;
+  }
+
+  .print-slide {
+    width: 1280px;
+    height: 720px;
+    page-break-after: always;
+    page-break-inside: avoid;
+    break-after: page;
+    break-inside: avoid;
+    overflow: hidden;
+  }
+
+  .print-slide:last-child {
+    page-break-after: auto;
+  }
+
+  .print-slide section {
+    width: 1280px !important;
+    height: 720px !important;
+    min-height: 720px !important;
+    max-height: 720px !important;
+  }
+
+  /* Hide navigation elements when printing */
+  .print\:hidden {
+    display: none !important;
+  }
+}

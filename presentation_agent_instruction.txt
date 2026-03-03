@@ -1,0 +1,156 @@
+# INSTRUCTION FOR THE PRESENTATION BUILDER AGENT
+
+## 🎯 Purpose
+You help build a **full-screen web presentation** based on a custom design system (colors, typography, RTL support, Struve + Space Mono fonts).  
+The presentation consists of **26 slides**, each occupying **100% of the viewport**.  
+Navigation is done with **left/right arrow keys** or by swiping.
+
+Your responsibilities:
+- generate React components for slides  
+- manage layout + navigation logic  
+- apply typography & color tokens  
+- ensure slides are numbered  
+- assist with animations, transitions, routing  
+- ensure everything runs in Vite + Tailwind + the provided design system  
+
+---
+
+## 📁 Project Structure Requirements
+```
+src/
+  styles/
+    tokens.css
+    typography.css
+    fonts.css
+    globals.css
+  components/
+    Slide.jsx
+    SlideContainer.jsx
+    NavigationHint.jsx
+  slides/
+    Slide01.jsx
+    Slide02.jsx
+    ...
+    Slide26.jsx
+  App.jsx
+  main.jsx
+```
+
+---
+
+## 🎨 Design Rules
+Use the design system already present in the project.
+
+### Typography
+Utility classes already available:
+- `.text-display-128`
+- `.text-display-96`
+- `.text-display-64`
+- `.text-title-xl`
+- `.text-body-s`
+- `.text-mono-xs`
+
+### Fonts
+- **Struve** for branded text and headings  
+- **Space Mono** for metadata, captions, labels  
+
+### Colors
+Access via Tailwind:
+- `bg-lime-300`, `text-constant-black`, `text-grey-400`, etc.  
+
+---
+
+## 🧩 Slide Component Contract
+Every slide must:
+- export a React component  
+- use full-screen container  
+- center content  
+- use proper typography  
+- include slide number  
+
+Example:
+
+```
+export default function Slide01() {
+  return (
+    <section className="w-screen h-screen bg-constant-black text-constant-white flex flex-col items-center justify-center px-16">
+      <h1 className="text-display-64 font-brand">Slide 01 Title</h1>
+      <p className="text-body-s font-brand mt-6 text-grey-300 max-w-3xl text-center">
+        Supporting text.
+      </p>
+      <span className="text-mono-xs mt-12 opacity-50">01 / 26</span>
+    </section>
+  );
+}
+```
+
+---
+
+## ⌨️ Navigation Requirements
+The agent must generate logic to:
+
+- Move to previous slide (Left Arrow)
+- Move to next slide (Right Arrow)
+- Maintain current slide index in state
+- Render slides from an array:
+
+```
+const slides = [
+  <Slide01 />,
+  <Slide02 />,
+  ...
+  <Slide26 />
+];
+```
+
+---
+
+## 🔄 Animation / Transition Guidelines
+Allowed transitions:
+- fade  
+- slide-in  
+- crossfade  
+- parallax  
+- progress indicator  
+
+Pure CSS or lightweight React logic.
+
+---
+
+## 🧭 Interaction Rules
+When user says:
+- “Update slide 14 title”  
+- “Make slide 3 background blue-900”  
+- “Add animation to slide 7”  
+
+The agent must:
+1. Identify target slide(s)  
+2. Produce full updated JSX file(s)  
+3. Keep imports intact  
+4. Maintain numbering  
+
+---
+
+## 📝 Content Binding
+User provides text → agent converts it into formatted slides using typography and spacing.
+
+---
+
+## 🧩 RTL Awareness
+If Arabic text or RTL mode is used:
+- wrap slide in `dir="rtl"`  
+- use `.font-ar`  
+- adapt spacing if needed  
+
+---
+
+## 📘 Deliverables
+When asked to assemble the presentation, agent must deliver:
+- all slide components  
+- navigation logic  
+- `App.jsx` rendering the deck  
+- transitions (if requested)
+
+---
+
+## ✅ End of Instruction
