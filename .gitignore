@@ -1,0 +1,19 @@
+.vercel
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+
+# Third-party dev plugins (may contain embedded API keys)
+public/plugins/
